@@ -1,0 +1,62 @@
+:root {
+  --fondo: #f3f5f9;
+  --tarjeta: #ffffff;
+  --texto: #1d2433;
+  --suave: #5b6578;
+  --primario: #2c6b00;
+  --primario-osc: #1f4d00;
+  --aviso: #8a5a00;
+  --aviso-bg: #fff4d6;
+  --error: #a4262c;
+  --error-bg: #fde7e9;
+  --ok: #1b6e00;
+  --ok-bg: #e3f6da;
+  --borde: #d5dbe6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #12161f; --tarjeta: #1b2130; --texto: #e8ecf5; --suave: #a0abc0;
+    --primario: #39a900; --primario-osc: #2c8300;
+    --aviso: #ffd37a; --aviso-bg: #3a2e12; --error: #ff9aa0; --error-bg: #3d1a1d;
+    --ok: #9be37a; --ok-bg: #1b3513; --borde: #2c3550;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 16px; min-height: 100vh; display: grid; place-items: start center;
+  background: var(--fondo); color: var(--texto);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.tarjeta {
+  width: 100%; max-width: 480px; margin-top: 24px; padding: 24px;
+  background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 12px;
+}
+h1 { margin: 0 0 4px; font-size: 1.6rem; }
+h2 { font-size: 1rem; margin: 20px 0 8px; color: var(--suave); }
+.reglas { color: var(--suave); margin: 0 0 16px; }
+.marcador { display: flex; gap: 12px; margin-bottom: 16px; }
+.marcador > div { flex: 1; border: 1px solid var(--borde); border-radius: 8px; padding: 8px 12px; }
+.etq { display: block; font-size: .8rem; color: var(--suave); }
+.marcador strong { font-size: 1.6rem; }
+label { display: block; font-weight: 600; margin-bottom: 4px; }
+.fila { display: flex; gap: 8px; }
+input {
+  flex: 1; min-width: 0; font: inherit; padding: 10px 12px; color: var(--texto);
+  background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 8px;
+}
+button {
+  font: inherit; font-weight: 600; padding: 10px 18px; border: 0; border-radius: 8px;
+  background: var(--primario); color: #fff; cursor: pointer;
+}
+button:hover:not(:disabled) { background: var(--primario-osc); }
+button:disabled, input:disabled { opacity: .5; cursor: not-allowed; }
+:focus-visible { outline: 3px solid #1a73e8; outline-offset: 2px; }
+.secundario { margin-top: 16px; background: transparent; color: var(--texto); border: 1px solid var(--borde); }
+.secundario:hover:not(:disabled) { background: var(--fondo); }
+.mensaje { min-height: 3em; margin: 12px 0 0; border-radius: 8px; }
+.mensaje:not(:empty) { padding: 8px 12px; background: var(--fondo); }
+.mensaje.aviso { background: var(--aviso-bg); color: var(--aviso); }
+.mensaje.error { background: var(--error-bg); color: var(--error); }
+.mensaje.ok { background: var(--ok-bg); color: var(--ok); }
+.historial { margin: 0; padding-left: 24px; }
+.historial:empty::before { content: "Aún no hay intentos."; color: var(--suave); margin-left: -24px; }

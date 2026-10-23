@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adivina el número</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="tarjeta">
+    <h1>Adivina el número</h1>
+    <p class="reglas" id="reglas"></p>
+
+    <div class="marcador">
+      <div><span class="etq">Intentos restantes</span><strong id="restantes">-</strong></div>
+      <div><span class="etq">Entradas rechazadas</span><strong id="rechazos">0</strong></div>
+    </div>
+
+    <form id="formulario" novalidate>
+      <label for="entrada">Tu número</label>
+      <div class="fila">
+        <input id="entrada" type="text" inputmode="numeric" autocomplete="off" aria-describedby="mensaje">
+        <button type="submit" id="enviar">Probar</button>
+      </div>
+    </form>
+
+    <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+
+    <h2>Historial (solo los intentos que contaron)</h2>
+    <ol id="historial" class="historial"></ol>
+
+    <button type="button" id="nueva" class="secundario">Nueva partida</button>
+  </main>
+
+  <script src="game.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
